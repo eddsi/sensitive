@@ -1,0 +1,15 @@
+version: '3.8'  # 使用 Docker Compose 文件版本 3.8
+
+services: # 定义服务
+  web: # 服务名称
+    image: nginx:latest  # 使用的镜像
+    ports:
+      - "80:80"  # 将容器的 80 端口映射到宿主机的 80 端口
+    volumes:
+      - ./html:/usr/share/nginx/html  # 将宿主机的 ./html 目录挂载到容器的 /usr/share/nginx/html
+    environment:
+      - NGINX_HOST=example.com
+      - NGINX_PORT=80
+
+volumes: # 定义使用的卷
+  db_data:  # 命名卷
