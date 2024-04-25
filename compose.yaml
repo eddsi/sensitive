@@ -6,3 +6,4 @@ services:
       - "8081:8081"
     environment:
       - SPRING_PROFILES_ACTIVE=prod
+    restart: always
