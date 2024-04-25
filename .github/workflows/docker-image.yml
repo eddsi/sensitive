@@ -39,6 +39,11 @@ jobs:
           ethst/sensitive-web:latest
           ethst/sensitive-web:${{ steps.prep.outputs.date }}-${{ steps.prep.outputs.sha }}
 
+    - name: Setup SSH Keys
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.DEPLOY_KEY }}
+
     - name: Deploy with docker-compose
       run: |
         ssh -T ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
@@ -48,9 +53,3 @@ jobs:
         EOF
       env:
         DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
-
-    # 设置SSH私钥
-    - name: Setup SSH Keys
-      uses: webfactory/ssh-agent@v0.5.3
-      with:
-        ssh-private-key: ${{ secrets.DEPLOY_KEY }}
