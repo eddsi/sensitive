@@ -36,8 +36,8 @@ jobs:
         file: Dockerfile
         push: true
         tags: |
-          ethst/sensitive-web:latest
-          ethst/sensitive-web:${{ steps.prep.outputs.date }}-${{ steps.prep.outputs.sha }}
+          ${{ secrets.DOCKER_USERNAME }}/sensitive-web:latest
+          ${{ secrets.DOCKER_USERNAME }}/sensitive-web:${{ steps.prep.outputs.date }}-${{ steps.prep.outputs.sha }}
 
     - name: Setup SSH Keys
       uses: webfactory/ssh-agent@v0.5.3
