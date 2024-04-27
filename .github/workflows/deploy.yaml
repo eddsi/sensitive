@@ -36,5 +36,3 @@ jobs:
             docker-compose pull sensitive:stable
             docker-compose up -d
           EOF
-        env:
-          name: Docker CD
