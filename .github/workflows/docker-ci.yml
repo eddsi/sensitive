@@ -36,24 +36,5 @@ jobs:
         file: Dockerfile
         push: true
         tags: |
-          ${{ secrets.DOCKER_USERNAME }}/sensitive-web:latest
-          ${{ secrets.DOCKER_USERNAME }}/sensitive-web:${{ steps.prep.outputs.date }}-${{ steps.prep.outputs.sha }}
-
-    - name: Setup SSH Keys
-      uses: webfactory/ssh-agent@v0.5.3
-      with:
-        ssh-private-key: ${{ secrets.DEPLOY_KEY }}
-
-    - name: Add SSH key to known_hosts
-      run: |
-        ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
-
-    - name: Deploy with docker-compose
-      run: |
-        ssh -T ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
-          cd ${{ secrets.DOCKER_COMPOSE_PATH }}
-          docker-compose pull
-          docker-compose up -d
-        EOF
-      env:
-        DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+          ${{ secrets.DOCKER_USERNAME }}/sensitive:latest
+          ${{ secrets.DOCKER_USERNAME }}/sensitive:${{ steps.prep.outputs.date }}-${{ steps.prep.outputs.sha }}
