@@ -25,10 +25,10 @@ content.
 ### Installation
 
 1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/eddsi/sensitive.git
-   cd sensitive
-   ```
+```bash
+git clone https://github.com/eddsi/sensitive.git
+cd sensitive
+```
 2. **Build the Project**
 
 ```bash
@@ -43,16 +43,16 @@ mvn spring-boot:run
 
 ## Usage
 
-To check if a text contains sensitive words, make a GET request to the /api/sensitive/check endpoint with the text you
+To check if a text contains sensitive words, make a POST request to the /api/sensitive/check endpoint with the text you
 want to analyze:
 
 ```
-curl -X POST 'http://localhost:8080/api/sensitive/check'
+curl -X POST -d '"test string"' -H "Content-type: application/json" http://localhost:8080/api/sensitive/check'
 ```
 
 ## API Reference
 
-### GET `/api/sensitive/check`
+### POST `/api/sensitive/check`
 
 - **Parameters**:
     - `text` (string): Text to be checked for sensitive words.

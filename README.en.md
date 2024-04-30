@@ -1,36 +1,70 @@
-# sensitive
+# Sensitive Word Detection
 
-#### Description
-{**When you're done, you can delete the content in this README and update the file with details for others getting started with your repository**}
+## About
 
-#### Software Architecture
-Software architecture description
+This repository hosts the **Sensitive Word Detection** project, a robust and efficient interface designed for the
+detection and filtering of sensitive words in text data. The primary goal of this project is to provide developers with
+a tool that can be easily integrated into various applications requiring content moderation, such as social media
+platforms. The interface leverages the `sensitive-word` package to perform real-time checks and filtering of sensitive
+content.
 
-#### Installation
+## Features
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+- **Real-Time Detection**: Quickly identifies sensitive words in texts.
+- **Easy Integration**: Designed to be seamlessly integrated into existing applications.
+- **Customizable Filters**: Allows for customization of the sensitive words list based on application-specific needs.
 
-#### Instructions
+## Getting Started
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+### Prerequisites
 
-#### Contribution
+- Java 11 or later
+- Maven 3.6 or later
+- Spring Boot 2.5 or later
 
-1.  Fork the repository
-2.  Create Feat_xxx branch
-3.  Commit your code
-4.  Create Pull Request
+### Installation
 
+1. **Clone the repository:**
+```bash
+git clone https://github.com/eddsi/sensitive.git
+cd sensitive
+```
+2. **Build the Project**
 
-#### Gitee Feature
+```bash
+mvn clean install
+```
 
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+3. **Run the Application**
+
+```
+mvn spring-boot:run
+```
+
+## Usage
+
+To check if a text contains sensitive words, make a POST request to the /api/sensitive/check endpoint with the text you
+want to analyze:
+
+```
+curl -X POST -d '"test string"' -H "Content-type: application/json" http://localhost:8080/api/sensitive/check'
+```
+
+## API Reference
+
+### POST `/api/sensitive/check`
+
+- **Parameters**:
+    - `text` (string): Text to be checked for sensitive words.
+- **Returns**: Boolean indicating whether the text contains sensitive words.
+
+## Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any
+contributions you make are greatly appreciated.
+
+- **Fork the Project**
+- **Create your Feature Branch**
+- **Commit your Changes**
+- **Push to the Branch**
+- **Open a Pull Request**
