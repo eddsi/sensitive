@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.biunova</groupId>
     <artifactId>sensitive</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
     <name>sensitive</name>
     <description>Sensitive detection for Spring Boot</description>
     <properties>

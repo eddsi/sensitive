@@ -17,4 +17,9 @@ public class SensitiveWordController {
     public String replaceSensitiveWord(@RequestBody String text) {
         return SensitiveWordHelper.replace(text);
     }
+
+    @PostMapping("/api/sensitive/replaceWith")
+    public String replaceSensitiveWordWith(@RequestBody String text) {
+        return SensitiveWordHelper.replace(text, '-');
+    }
 }
