@@ -12,4 +12,9 @@ public class SensitiveWordController {
     public boolean checkSensitiveWord(@RequestBody String text) {
         return SensitiveWordHelper.contains(text);
     }
+
+    @PostMapping("/api/sensitive/replace")
+    public String replaceSensitiveWord(@RequestBody String text) {
+        return SensitiveWordHelper.replace(text);
+    }
 }
