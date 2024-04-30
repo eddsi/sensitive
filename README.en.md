@@ -47,7 +47,7 @@ To check if a text contains sensitive words, make a POST request to the /api/sen
 want to analyze:
 
 ```
-curl -X POST -d '"test string"' -H "Content-type: application/json" http://localhost:8080/api/sensitive/check'
+curl -X POST -d '"test string"' -H "Content-type: application/json" http://localhost:8081/api/sensitive/check'
 ```
 
 ## API Reference

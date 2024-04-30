@@ -42,7 +42,7 @@ mvn spring-boot:run
 要检查文本是否包含敏感词，请向 `/api/sensitive/check` 端点发送 POST 请求，并附带您想要分析的文本：
 
 ```
-curl -X POST -d '"test string"' -H "Content-type: application/json" http://localhost:8080/api/sensitive/check'
+curl -X POST -d '"test string"' -H "Content-type: application/json" http://localhost:8081/api/sensitive/check'
 ```
 
 ## API 参考
